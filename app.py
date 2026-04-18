@@ -40,19 +40,15 @@ def calcular_prueba_z(datos, mu_hipotesis, sigma_poblacional, alpha, tipo_prueba
         "rechazar_h0": rechazar_h0
     }
 
-# ==========================================
+
 # BLOQUE DE PRUEBA LOCAL (Simulación)
-# ==========================================
+
 if __name__ == "__main__":
     print("--- INICIANDO PRUEBA DEL MOTOR ESTADÍSTICO ---")
     
-    # Generamos 50 datos aleatorios (n = 50)
-    # Supongamos que provienen de una población con media real de 105 y desviación de 15
-    np.random.seed(42) # Usamos una semilla para que siempre te dé el mismo resultado
+    np.random.seed(42) 
     datos_simulados = np.random.normal(loc=105, scale=15, size=50)
-    
-    # Parámetros de nuestra prueba
-    # Hipótesis Nula: La media es 100
+  
     mu_hipotesis = 100
     sigma_poblacional = 15
     alpha = 0.05
@@ -61,7 +57,7 @@ if __name__ == "__main__":
     print(f"Probando H0: mu = {mu_hipotesis} vs H1: mu > {mu_hipotesis} (Cola derecha)")
     print(f"Nivel de significancia (alpha): {alpha}\n")
     
-    # Ejecutamos la función
+  
     resultados = calcular_prueba_z(
         datos=datos_simulados, 
         mu_hipotesis=mu_hipotesis, 
@@ -70,7 +66,7 @@ if __name__ == "__main__":
         tipo_prueba=tipo
     )
     
-    # Imprimimos los resultados
+   
     print("RESULTADOS DE LA PRUEBA:")
     for clave, valor in resultados.items():
         print(f"- {clave}: {valor}")
